@@ -227,7 +227,7 @@ class QwenASREngine:
         rollback_num: int = 5
     ) -> TranscribeResult:
         """运行完整转录流水线 (从文件加载音频)"""
-        from .utils import load_audio
+        from .audio import load_audio
         audio = load_audio(audio_file, start_second=start_second, duration=duration)
         
         return self.asr(
