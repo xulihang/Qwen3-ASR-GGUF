@@ -151,6 +151,9 @@ class DirectoryWatcher:
                 # 扫描目录中的音频文件
                 for ext in self.handler.supported_exts:
                     for file_path in self.watch_dir.glob(f"*{ext}"):
+                        if str(file_path).endswith("cancel.wav"):
+                            print("Exiting...")
+                            exit()
                         if str(file_path) not in processed_files:
                             # 等待文件写入完成
                             time.sleep(0.5)
