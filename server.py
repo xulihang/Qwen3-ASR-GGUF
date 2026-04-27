@@ -114,7 +114,7 @@ class AudioFileHandler:
 
                 # 导出结果
                 exporters.export_to_txt(txt_out, res)
-                console.print(f"[green]✓ 转录完成: {txt_out}[/green]")
+                console.print(f"[green] 转录完成: {txt_out}[/green]")
 
                 if self.engine.config.enable_aligner and res.alignment:
                     srt_out = f"{base_out}.srt"
@@ -256,7 +256,7 @@ def start(
         t0 = time.time()
         engine = QwenASREngine(config=config)
         init_duration = time.time() - t0
-        console.print(f"[green]✓ 引擎初始化完成，耗时: {init_duration:.2f} 秒[/green]")
+        console.print(f"[green] 引擎初始化完成，耗时: {init_duration:.2f} 秒[/green]")
     except Exception as e:
         console.print(f"[bold red]引擎初始化失败:[/bold red]\n{e}")
         raise typer.Exit(code=1)
